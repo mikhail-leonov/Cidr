@@ -12,22 +12,77 @@
     <body>
         <main>
             <h1 class="visually-hidden">CIDR Calculator — convert IPv4 and IPv6 ranges to CIDR blocks</h1>
-            <div class="px-4 py-5 my-5 text-center hero">
+
+            <!-- Hero -->
+            <div class="px-4 py-5 text-center hero">
                 <h1 class="display-4 fw-bold hero-title mb-3">From any IP range to the exact CIDR blocks</h1>
                 <div class="col-lg-6 mx-auto">
                     <p class="lead mb-4">Paste IPv4 or IPv6 ranges however you have them — two-IP spans, netmask notation, wildcard octets, or existing CIDR — and get the smallest, correctly aligned set of CIDR blocks that covers them. Convert a whole list in one pass.</p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <button type="button" class="btn btn-primary btn-lg px-4 gap-2" onclick="location.href='index.php'">
+                        <button type="button" id="ctaConvert" class="btn btn-primary btn-lg px-4 gap-2">
                             <i class="bi bi-arrow-left-right me-1"></i>Convert a range
                         </button>
-                        <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='index.php?range=187.17.2.2 - 192.11.4.29'">
+                        <button type="button" id="ctaExample" class="btn btn-outline-secondary btn-lg px-4">
                             <i class="bi bi-lightning-charge me-1"></i>Try an example
                         </button>
                     </div>
                 </div>
             </div>
+
+            <!-- Calculator -->
+            <div class="container pb-5" id="calculator">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-primary text-white d-flex align-items-center gap-2">
+                                <i class="bi bi-diagram-3"></i>
+                                <span class="hero-title fs-5">CIDR Calculator</span>
+                            </div>
+                            <div class="card-body">
+                                <form id="form" novalidate>
+                                    <div class="mb-3">
+                                        <span class="form-label fw-semibold">Settings</span>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="wise" name="wise">
+                                            <label class="form-check-label" for="wise">
+                                                Auto-replace IPv4 octets: <code>1-254</code> &rarr; <code>0-255</code>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold" for="range">IP ranges</label>
+                                        <textarea id="range" name="range" class="form-control font-monospace" rows="5"
+                                            placeholder="127.1.10-31.*;  187.17.2.2 - 192.11.4.29;  10.0.0.0/255.255.255.0;  2001:db8::/32"></textarea>
+                                        <div class="form-text">
+                                            IPv4 &amp; IPv6. Accepts two-IP ranges, wildcard octets, netmask notation, and CIDR.
+                                            Separate many with commas, semicolons, new lines, or &ldquo;and&rdquo;.
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-2 d-flex align-items-center justify-content-between">
+                                        <label class="form-label fw-semibold mb-0" for="holdtext">CIDR ranges</label>
+                                        <button type="button" id="copyBtn" class="btn btn-sm btn-outline-secondary d-none">
+                                            <i class="bi bi-clipboard-check me-1"></i>Copy
+                                        </button>
+                                    </div>
+                                    <textarea id="holdtext" class="form-control font-monospace" rows="16" readonly
+                                        placeholder="The CIDR list appears here"></textarea>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" form="form" id="convertBtn" class="btn btn-primary">
+                                    <i class="bi bi-arrow-left-right me-1"></i>Convert
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
+
         <script src="public/js/bootstrap/bootstrap.min.js"></script>
+        <script src="public/js/cidr.js"></script>
         <script src="public/js/lng/en.js"></script>
         <script src="public/js/lng/ru.js"></script>
         <script src="public/js/app.js"></script>
