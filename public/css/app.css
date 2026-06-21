@@ -1,0 +1,43 @@
+/* =========================================================================
+   CIDR Calculator — landing styles (public/css/app.css)
+   Adds only the styling hooks the landing markup references (.hero,
+   .hero-title) plus a Fraunces heading rule. No structural dependencies.
+   ========================================================================= */
+
+/* Fraunces for display headings */
+.hero-title{
+  font-family:"Fraunces", Georgia, "Times New Roman", serif;
+  font-optical-sizing:auto;
+  letter-spacing:-0.01em;
+  line-height:1.05;
+}
+
+/* Hero rhythm + a quiet, subject-appropriate backdrop:
+   a faint grid texture nods to address space / octets */
+.hero{
+  background:
+    linear-gradient(180deg, rgba(110,43,38,.04), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(42,36,32,.035) 0 1px, transparent 1px 24px);
+  border-radius:1rem;
+}
+
+.lead code, .hero .font-monospace{
+  font-family:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size:.9em;
+}
+
+/* CTA polish + accessible focus */
+.btn-lg{ border-radius:.6rem; }
+.btn:focus-visible{ outline:3px solid rgba(146,115,57,.55); outline-offset:2px; }
+
+@media (prefers-reduced-motion: no-preference){
+  .btn{ transition:transform .12s ease, box-shadow .12s ease; }
+  .btn-primary:hover{ transform:translateY(-1px); }
+}
+
+/* Mobile-first: tighten the hero on small screens */
+@media (max-width:575.98px){
+  .hero{ padding-top:2.5rem!important; padding-bottom:2.5rem!important;
+         margin-top:2rem!important; margin-bottom:2rem!important; }
+  .hero-title{ font-size:2rem; }
+}

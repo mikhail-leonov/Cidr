@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CIDR Calculator — IPv4 &amp; IPv6 Range to CIDR Converter</title>
+        <link rel="stylesheet" href="public/css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="public/fonts/common/fraunces.css">
+        <link rel="stylesheet" href="public/icons/common/bootstrap-icons.css">
+        <link rel="stylesheet" href="public/css/app.css">
+    </head>
+    <body>
+        <main>
+            <h1 class="visually-hidden">CIDR Calculator — convert IPv4 and IPv6 ranges to CIDR blocks</h1>
+            <div class="px-4 py-5 my-5 text-center hero">
+                <h1 class="display-4 fw-bold hero-title mb-3">From any IP range to the exact CIDR blocks</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">Paste IPv4 or IPv6 ranges however you have them — two-IP spans, netmask notation, wildcard octets, or existing CIDR — and get the smallest, correctly aligned set of CIDR blocks that covers them. Convert a whole list in one pass.</p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <button type="button" class="btn btn-primary btn-lg px-4 gap-2" onclick="location.href='index.php'">
+                            <i class="bi bi-arrow-left-right me-1"></i>Convert a range
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="location.href='index.php?range=187.17.2.2 - 192.11.4.29'">
+                            <i class="bi bi-lightning-charge me-1"></i>Try an example
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="public/js/bootstrap/bootstrap.min.js"></script>
+        <script src="public/js/lng/en.js"></script>
+        <script src="public/js/lng/ru.js"></script>
+        <script src="public/js/app.js"></script>
+    </body>
+</html>
